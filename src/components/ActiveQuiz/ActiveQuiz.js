@@ -7,7 +7,7 @@ const ActiveQuiz = props => {
     <div className={classes.ActiveQuiz}>
       <p>
         <span>3.</span>
-        How are U ?
+        {props.question}
       </p>
 
       <AnswersList answers={props.answers} />
