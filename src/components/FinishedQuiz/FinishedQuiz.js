@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from "../UI/Button/Button";
 import classes from './FinishedQuiz.module.css'
 
 const FinishedQuiz = props => {
@@ -14,7 +15,7 @@ const FinishedQuiz = props => {
     <div className={classes.FinishedQuiz}>
       <h2>Finished</h2>
       <p>True answers: {successCount} / {props.quiz.length}</p>
-      <button onClick={props.onRetry}>Repeat</button>
+      <Button onClick={props.onRetry}>Repeat</Button>
 
       <ul>
         {props.quiz.map((quizItem, index) => {
