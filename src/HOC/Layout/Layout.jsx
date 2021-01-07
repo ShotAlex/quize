@@ -4,10 +4,9 @@ import classes from './Layout.module.css'
 class Layout extends  React.Component{
   render() {
     return (
-      <div className={classes.layout}>
-
+      <div className={classes.Layout}>
         <main>
-          <h1>Hello world!</h1>
+          {this.props.children}
         </main>
       </div>
     )
