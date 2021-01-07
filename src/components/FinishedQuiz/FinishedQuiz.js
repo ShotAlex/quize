@@ -14,7 +14,7 @@ const FinishedQuiz = props => {
     <div className={classes.FinishedQuiz}>
       <h2>Finished</h2>
       <p>True answers: {successCount} / {props.quiz.length}</p>
-      <button>Repeat</button>
+      <button onClick={props.onRetry}>Repeat</button>
 
       <ul>
         {props.quiz.map((quizItem, index) => {
