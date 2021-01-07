@@ -1,11 +1,12 @@
 import Layout from "../HOC/Layout/Layout";
-import classes from './App.module.css'
+import Quiz from "../containers/Quize/Quiz";
+// import classes from './App.module.css'
 
 function App() {
   return (
-    <div className={classes.app}>
-        <Layout />
-    </div>
+    <Layout>
+      <Quiz />
+    </Layout>
   );
 }
 
