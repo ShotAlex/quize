@@ -7,6 +7,7 @@ class Quiz extends Component {
     quiz : [
       {
         question: 'True language',
+        rightAnswerId: 2,
         answers: [
           {id: 1, text: 'HTML'},
           {id: 2, text: 'CSS'},
@@ -17,13 +18,20 @@ class Quiz extends Component {
     ]
   }
 
+  onAnswerClickHandler = (answerId) => {
+    console.log(answerId)
+  }
+
   render() {
     return (
       <div className={classes.Quiz}>
         <h1>Quiz</h1>
+
         <ActiveQuiz
           answers={this.state.quiz[0].answers}
           question={this.state.quiz[0].question}
+          onAnswerClick={this.onAnswerClickHandler}
+          // rightAnswerId={this.state.quiz[0].rightAnswerId}
         />
       </div>
     );
