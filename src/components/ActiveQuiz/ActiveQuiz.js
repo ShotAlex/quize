@@ -7,7 +7,7 @@ const ActiveQuiz = props => {
     <div className={classes.ActiveQuiz}>
       <p className={classes.Question}>
         <span>{props.answerNumber} {props.question}</span>
-        <small>{props.answerNumber} / {props.quizeLength}</small>
+        <small>{props.answerNumber} / {props.quizLength}</small>
       </p>
 
       <AnswersList
