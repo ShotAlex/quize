@@ -1,0 +1,9 @@
+.Auth {
+    display: flex;
+    flex-direction: column;
+}
+
+.AuthForm {
+    display: flex;
+    flex-direction: column;
+}
