@@ -1,5 +1,11 @@
 .Layout {
     text-transform: uppercase;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0, .2);
 }
 
 .Layout main {
