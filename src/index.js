@@ -5,7 +5,7 @@ import App from './App/App'
 import {BrowserRouter} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 
-const application = (
+const app = (
   <React.StrictMode>
     <BrowserRouter>
       <App />
@@ -13,6 +13,6 @@ const application = (
   </React.StrictMode>
 );
 
-ReactDOM.render(application,document.getElementById('root'))
+ReactDOM.render(app,document.getElementById('root'))
 
 reportWebVitals()
