@@ -1,9 +1,8 @@
 import React from 'react'
 import classes from './Input.module.css'
 
-const isInvalid = ({valid, touch, shouldValidate}) => {
-  return !valid && !touch && !shouldValidate
-}
+const isInvalid = ({valid, touch, shouldValidate}) => !valid && !touch && !shouldValidate
+// const isInvalid = ({valid, touch, shouldValidate}) => !!valid && !!touch && !!shouldValidate
 
 const Input = props => {
   const inputType = props.type || 'text'
@@ -13,8 +12,12 @@ const Input = props => {
   if(isInvalid(props)) cls.push(classes.invalid)
 
   const errorLabel = isInvalid(props)
-    ? <span>{props.errorMessage || 'Input here'}</span>
+    ? <span className={classes.invalid}>
+        {props.errorMessage || 'Input here'}
+      </span>
     : null
+
+  console.log(props)
 
   return (
     <div className={cls.join(' ')}>
