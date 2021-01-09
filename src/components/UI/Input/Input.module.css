@@ -25,5 +25,5 @@
 }
 
 .Input.invalid label {
-
+    color: red;
 }

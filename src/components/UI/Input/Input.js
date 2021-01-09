@@ -1,8 +1,7 @@
 import React from 'react'
 import classes from './Input.module.css'
 
-const isInvalid = ({valid, touch, shouldValidate}) => !valid && !touch && !shouldValidate
-// const isInvalid = ({valid, touch, shouldValidate}) => !!valid && !!touch && !!shouldValidate
+const isInvalid = ({valid, touched, shouldValidate}) => !valid && touched && shouldValidate
 
 const Input = props => {
   const inputType = props.type || 'text'
@@ -16,8 +15,6 @@ const Input = props => {
         {props.errorMessage || 'Input here'}
       </span>
     : null
-
-  console.log(props)
 
   return (
     <div className={cls.join(' ')}>
