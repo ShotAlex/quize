@@ -1,7 +1,7 @@
 ### Quiz app
 
-- git clone 
+- git clone https://github.com/ShotAlex/quize.git
 - cd quize
-- npm i
-- npm run start
+- yarn install
+- yarn run start
 
