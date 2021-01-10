@@ -1,0 +1,18 @@
+.QuizCreator {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    flex-grow: 1;
+    width: 100%;
+    flex-direction: column;
+}
+
+.QuizCreator > div{
+    width: 100%;
+    padding: 0 20px;
+
+}
+
+.QuizCreator form {
+
+}
