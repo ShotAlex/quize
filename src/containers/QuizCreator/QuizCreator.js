@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Button from '../../components/UI/Button/Button'
-import {createControl} from '../../form/formFramework'
+import {createControl, validate, validateForm} from '../../form/formFramework'
 import Input from '../../components/UI/Input/Input'
 import Auxiliary from '../../HOC/Auxiliary/Auxiliary'
 import Select from '../../components/UI/Select/Select'
@@ -30,14 +30,32 @@ function createFormControls() {
 class QuizCreator extends Component {
   state = {
     quiz: [],
+    isFormValid: false,
     rightAnswerId: 1,
     formControls: createFormControls()
   }
 
   submitHandler = event => event.preventDefault()
+
   addQuestionHandler = () => {}
   createQuizHandler = () => {}
-  changeHandler = (value, controlName) => {}
+
+  changeHandler = (value, controlName) => {
+    const formControls = { ...this.state.formControls }
+    const control = { ...formControls[controlName] }
+
+    control.touched = true
+    control.value = value
+    control.valid = validate(control.value, control.validation)
+
+    formControls[controlName] = control
+
+    this.setState({
+      formControls,
+      isFormValid: validateForm(formControls),
+    })
+  }
+
   selectChangeHandler = (event) => {
     this.setState({
       rightAnswerId: +event.target.value
