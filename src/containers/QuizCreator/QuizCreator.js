@@ -21,7 +21,7 @@ function createFormControls() {
       errorMessage: 'Not empty question',
     }, {required: true}),
     option1: createOptionControl(1),
-    option2: createOptionControl(3),
+    option2: createOptionControl(2),
     option3: createOptionControl(3),
     option4: createOptionControl(4)
   }
@@ -37,8 +37,37 @@ class QuizCreator extends Component {
 
   submitHandler = event => event.preventDefault()
 
-  addQuestionHandler = () => {}
-  createQuizHandler = () => {}
+  addQuestionHandler = event => {
+    event.preventDefault()
+    const quiz = this.state.quiz.concat()
+    const index = quiz.length + 1
+    const {question ,option1, option2, option3, option4} = this.state.formControls
+    const questionItem = {
+      question: question.value,
+      id: index,
+      rightAnswerId: this.state.rightAnswerId,
+      answers: [
+        { text: option1.value, id: option1.id },
+        { text: option2.value, id: option2.id },
+        { text: option3.value, id: option3.id },
+        { text: option4.value, id: option4.id }
+      ]
+    }
+    quiz.push(questionItem)
+
+    this.setState({
+      quiz,
+      isFormValid: false,
+      rightAnswerId: 1,
+      formControls: createFormControls()
+    })
+  }
+  createQuizHandler = event => {
+    event.preventDefault()
+
+    console.log(this.state.quiz)
+
+  }
 
   changeHandler = (value, controlName) => {
     const formControls = { ...this.state.formControls }
@@ -105,8 +134,20 @@ class QuizCreator extends Component {
 
 
 
-          <Button type='primary' onClick={this.addQuestionHandler} > Add question </Button>
-          <Button type='success' onClick={this.createQuizHandler} > Create quiz </Button>
+          <Button
+            type='primary'
+            onClick={this.addQuestionHandler}
+            disabled={!this.state.isFormValid}
+          >
+            Add question
+          </Button>
+          <Button
+            type='success'
+            onClick={this.createQuizHandler}
+            disabled={this.state.quiz.length === 0}
+          >
+            Create quiz
+          </Button>
         </form>
       </div>
     );
