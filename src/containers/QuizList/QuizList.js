@@ -3,10 +3,11 @@ import {NavLink} from 'react-router-dom'
 import classes from './QuizList.module.css'
 import Loader from './../../components/UI/Loader/Loader'
 import {connect} from 'react-redux'
-import {fetchQuizes} from './../../store/actions/quiz'
+import {fetchQuizes} from '../../store/actions/quiz'
+
 
 class QuizList extends Component {
-  renderQuizList() {
+  renderQuizes() {
     return this.props.quizes.map(quiz => {
       return (
         <li key={quiz.id}>
@@ -18,7 +19,7 @@ class QuizList extends Component {
     })
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.props.fetchQuizes()
   }
 
@@ -33,7 +34,7 @@ class QuizList extends Component {
           this.props.loading && this.props.quizes.length !== 0
           ? <Loader />
           : <ul>
-              {this.renderQuizList()}
+              {this.renderQuizes()}
             </ul>
         }
       </div>
@@ -50,7 +51,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchQuizes: dispatch(fetchQuizes())
+    fetchQuizes: () => dispatch(fetchQuizes())
   }
 }
 
