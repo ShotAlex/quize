@@ -53,3 +53,20 @@ export function authSuccess(token) {
     token
   }
 }
+
+export function autoLogin() {
+  return dispatch => {
+    const token = localStorage.getItem('token')
+    if(token) {
+      let expirationDate = new Date(localStorage.getItem('expirationDate'))
+      if (expirationDate <= new Date()) {
+        dispatch(logout())
+      } else {
+        dispatch(authSuccess(token))
+        dispatch(autoLogout((expirationDate.getTime() - new Date()) / 1000))
+      }
+    } else {
+      dispatch(logout())
+    }
+  }
+}
